@@ -341,19 +341,41 @@
     overflow: hidden;
   }
   .filosofia-text {
-    max-width: 720px;
+    max-width: 660px;
     margin: 0 auto;
     text-align: center;
   }
+  .filosofia .section-title {
+    font-size: clamp(1.9rem, 3.8vw, 3rem);
+    margin-bottom: 0;
+  }
   .filosofia-quote {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-style: italic;
     color: var(--green-mid);
-    line-height: 1.4;
-    margin: 2rem 0;
-    padding-left: 1.5rem;
-    border-left: 2px solid var(--gold);
+    line-height: 1.65;
+    margin: 0;
+    padding: 2.2rem 1rem;
+    border-left: none;
+    position: relative;
+  }
+  .filosofia-quote::before,
+  .filosofia-quote::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+  .filosofia-quote::before { margin-bottom: 2rem; }
+  .filosofia-quote::after  { margin-top: 2rem; }
+  .filosofia .section-body {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2;
   }
 
   /* ===== EXPERIENCIAS ===== */

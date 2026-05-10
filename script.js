@@ -7,11 +7,20 @@ window.addEventListener('scroll', () => {
 
 // === HAMBURGER MENU ===
 const mobileMenu = document.getElementById('mobileMenu');
-document.getElementById('hamburger').addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-document.getElementById('mobileClose').addEventListener('click', () => {
+const hamburger   = document.getElementById('hamburger');
+
+function closeMobileMenu() {
   mobileMenu.classList.remove('open');
+  hamburger.classList.remove('is-open');
+}
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('is-open', isOpen);
+});
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', closeMobileMenu);
 });
 
 // === HERO VIDEO ===

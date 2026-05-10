@@ -6,11 +6,12 @@ window.addEventListener('scroll', () => {
 });
 
 // === HAMBURGER MENU ===
+const mobileMenu = document.getElementById('mobileMenu');
 document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.add('open');
+  mobileMenu.classList.toggle('open');
 });
 document.getElementById('mobileClose').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.remove('open');
+  mobileMenu.classList.remove('open');
 });
 
 // === HERO VIDEO ===

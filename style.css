@@ -378,6 +378,116 @@
     line-height: 2;
   }
 
+  /* ===== TERAPIAS ALTERNATIVAS ===== */
+  :root {
+    --teal-deep: #2a6b7c;
+    --teal-mid:  #4a9aae;
+    --teal-pale: #c2e4ed;
+    --teal-bg:   #e8f5f8;
+  }
+  .terapias {
+    background: linear-gradient(160deg, #e8f5f8 0%, #d6eef4 60%, #e2f0f5 100%);
+    overflow: hidden;
+  }
+  .terapias-header {
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto 4rem;
+  }
+  .terapias .section-label { color: var(--teal-deep); }
+  .terapias .section-title { color: var(--text-dark); }
+  .terapias .section-title em { color: var(--teal-mid); }
+  .terapias .section-body {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2;
+    color: var(--text-mid);
+  }
+  .terapias-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0 2rem;
+  }
+  .terapias-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    display: block;
+  }
+  .terapias-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 36px rgba(42,107,124,0.2);
+  }
+  /* Primer imagen grande (span 2 filas) */
+  .terapias-grid img:first-child {
+    grid-row: span 2;
+    height: 100%;
+    min-height: 530px;
+  }
+  .terapias-more {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .btn-terapias-ver {
+    background: transparent;
+    border: 1px solid var(--teal-deep);
+    color: var(--teal-deep);
+    padding: 0.85rem 2.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .btn-terapias-ver:hover {
+    background: var(--teal-deep);
+    color: var(--white);
+  }
+  .terapias-full {
+    max-width: 1100px;
+    margin: 1.5rem auto 0;
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 0 2rem;
+  }
+  .terapias-full img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .terapias-full img:hover { transform: scale(1.03); }
+
+  @media (max-width: 768px) {
+    .terapias-grid {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 1rem;
+    }
+    .terapias-grid img { height: 160px; }
+    .terapias-grid img:first-child {
+      grid-row: span 1;
+      min-height: 160px;
+    }
+    .terapias-full {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 1rem;
+    }
+    .terapias-full img { height: 140px; }
+  }
+
   /* ===== EXPERIENCIAS ===== */
   .experiencias {
     background: var(--green-deep);

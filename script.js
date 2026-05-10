@@ -135,8 +135,9 @@ function buildImageList() {
     seen.add(key);
     return true;
   });
-  const grid = Array.from(document.querySelectorAll('#galeriaGrid img'));
-  lbImages = [...unique, ...grid];
+  const grid     = Array.from(document.querySelectorAll('#galeriaGrid img'));
+  const terapias = Array.from(document.querySelectorAll('.terapias-grid img, #terapiasGrid img'));
+  lbImages = [...unique, ...grid, ...terapias];
 }
 
 function openLightbox(clickedImg) {
@@ -190,6 +191,24 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft')   lbPrev();
   if (e.key === 'ArrowRight')  lbNext();
 });
+
+// === TERAPIAS TOGGLE ===
+function toggleTerapias(btn) {
+  const grid = document.getElementById('terapiasGrid');
+  const isOpen = grid.style.display !== 'none';
+  if (!isOpen) {
+    grid.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+    grid.style.display = 'grid';
+    btn.textContent = '✕ Cerrar galería';
+    setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  } else {
+    grid.style.display = 'none';
+    btn.textContent = '✦ Ver galería completa';
+  }
+}
 
 // === LAZY MAP ===
 const MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar';

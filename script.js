@@ -25,18 +25,18 @@ if (heroVideo) {
 // === VER MÁS FOTOS ===
 function toggleGaleria(btn) {
   const grid = document.getElementById('galeriaGrid');
-  const isOpen = grid.classList.contains('open');
+  const isOpen = grid.style.display !== 'none';
   if (!isOpen) {
     // Cargar imágenes solo la primera vez (data-src → src)
     grid.querySelectorAll('img[data-src]').forEach(img => {
       img.src = img.dataset.src;
       img.removeAttribute('data-src');
     });
-    grid.classList.add('open');
+    grid.style.display = 'grid';
     btn.textContent = '✕ Cerrar galería';
     setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   } else {
-    grid.classList.remove('open');
+    grid.style.display = 'none';
     btn.textContent = '✦ Ver todas las fotos';
   }
 }

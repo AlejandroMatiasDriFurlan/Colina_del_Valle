@@ -108,6 +108,77 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
   }, 600);
 });
 
+// === LIGHTBOX ===
+const lightbox    = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+let lbImages = [];
+let lbIndex  = 0;
+
+function buildImageList() {
+  const carousel = Array.from(document.querySelectorAll('.galeria-track img'));
+  const seen = new Set();
+  const unique = carousel.filter(img => {
+    const key = img.src;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const grid = Array.from(document.querySelectorAll('#galeriaGrid img'));
+  lbImages = [...unique, ...grid];
+}
+
+function openLightbox(clickedImg) {
+  buildImageList();
+  const src = clickedImg.src || clickedImg.dataset.src;
+  lbIndex = lbImages.findIndex(img => (img.src || img.dataset.src) === src);
+  if (lbIndex === -1) lbIndex = 0;
+  showLightboxImage(lbIndex);
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage(index) {
+  const img = lbImages[index];
+  lightboxImg.src = img.src || img.dataset.src;
+  lightboxImg.alt = img.alt || '';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { lightboxImg.src = ''; }, 350);
+}
+
+function lbPrev() {
+  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+  showLightboxImage(lbIndex);
+}
+function lbNext() {
+  lbIndex = (lbIndex + 1) % lbImages.length;
+  showLightboxImage(lbIndex);
+}
+
+document.querySelector('.galeria-strips').addEventListener('click', e => {
+  if (e.target.tagName === 'IMG') openLightbox(e.target);
+});
+document.getElementById('galeriaGrid').addEventListener('click', e => {
+  if (e.target.tagName === 'IMG') openLightbox(e.target);
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click', e => { e.stopPropagation(); lbPrev(); });
+document.getElementById('lightboxNext').addEventListener('click', e => { e.stopPropagation(); lbNext(); });
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowLeft')   lbPrev();
+  if (e.key === 'ArrowRight')  lbNext();
+});
+
 // === LAZY MAP ===
 const MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar';
 

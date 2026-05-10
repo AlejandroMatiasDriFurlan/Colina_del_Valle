@@ -479,7 +479,58 @@
     to   { transform: translateX(0); }
   }
 
-  /* =====RESEÃ‘AS ===== */
+  /* Botón ver más fotos */
+  .galeria-more {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .btn-ver-mas {
+    background: transparent;
+    border: 1px solid var(--green-deep);
+    color: var(--green-deep);
+    padding: 0.85rem 2.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .btn-ver-mas:hover {
+    background: var(--green-deep);
+    color: var(--white);
+  }
+
+  /* Grid "ver todas las fotos" */
+  .galeria-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 2rem;
+    padding: 0 2rem;
+  }
+  .galeria-grid.open {
+    display: grid;
+  }
+  .galeria-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+  .galeria-grid img:hover { transform: scale(1.03); }
+
+  @media (max-width: 768px) {
+    .galeria-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      padding: 0 1rem;
+    }
+    .galeria-grid img { height: 140px; }
+  }
+
+  /* =====RESEÃ’AS ===== */
   .resenas {
     background: var(--cream);
     text-align: center;

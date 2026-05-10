@@ -22,6 +22,25 @@ if (heroVideo) {
 
 // === GALERÍA AUTO-SCROLL (CSS-driven, pause on hover handled via CSS) ===
 
+// === VER MÁS FOTOS ===
+function toggleGaleria(btn) {
+  const grid = document.getElementById('galeriaGrid');
+  const isOpen = grid.classList.contains('open');
+  if (!isOpen) {
+    // Cargar imágenes solo la primera vez (data-src → src)
+    grid.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+    grid.classList.add('open');
+    btn.textContent = '✕ Cerrar galería';
+    setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  } else {
+    grid.classList.remove('open');
+    btn.textContent = '✦ Ver todas las fotos';
+  }
+}
+
 // === WHATSAPP FLOAT ===
 const waFloat = document.getElementById('waFloat');
 window.addEventListener('scroll', () => {

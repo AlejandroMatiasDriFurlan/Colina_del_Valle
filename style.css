@@ -1354,7 +1354,8 @@ footer p {
 
   /* --- GALERÍA --- */
   /* Solo 1 fila en mobile */
-  .galeria-strip:nth-child(2) { display: none; }
+  .galeria-strip:nth-child(2),
+  .galeria-strip--second { display: none; }
   /* Ocultar cada 3ra imagen (reduce renders ~33%) */
   .galeria-track img:nth-child(3n) { display: none; }
   /* Animación ajustada para 18 imágenes */

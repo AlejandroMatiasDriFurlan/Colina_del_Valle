@@ -126,24 +126,36 @@ const lightboxImg = document.getElementById('lightboxImg');
 let lbImages = [];
 let lbIndex  = 0;
 
-function buildImageList() {
+function getSrc(img) {
+  return img.getAttribute('src') || img.dataset.src || '';
+}
+
+function buildGaleriaList() {
   const carousel = Array.from(document.querySelectorAll('.galeria-track img'));
   const seen = new Set();
   const unique = carousel.filter(img => {
-    const key = img.src;
+    const key = getSrc(img);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
   });
-  const grid     = Array.from(document.querySelectorAll('#galeriaGrid img'));
-  const terapias = Array.from(document.querySelectorAll('.terapias-grid img, #terapiasGrid img'));
-  lbImages = [...unique, ...grid, ...terapias];
+  const grid = Array.from(document.querySelectorAll('#galeriaGrid img'));
+  return [...unique, ...grid];
+}
+
+function buildTerapiasList() {
+  return Array.from(document.querySelectorAll('.terapias-grid img, #terapiasGrid img'))
+    .filter(img => img.style.display !== 'none');
 }
 
 function openLightbox(clickedImg) {
-  buildImageList();
-  const src = clickedImg.src || clickedImg.dataset.src;
-  lbIndex = lbImages.findIndex(img => (img.src || img.dataset.src) === src);
+  const section = clickedImg.closest('section');
+  lbImages = (section && section.classList.contains('terapias'))
+    ? buildTerapiasList()
+    : buildGaleriaList();
+
+  const clickedSrc = getSrc(clickedImg);
+  lbIndex = lbImages.findIndex(img => getSrc(img) === clickedSrc);
   if (lbIndex === -1) lbIndex = 0;
   showLightboxImage(lbIndex);
   lightbox.classList.add('open');
@@ -152,7 +164,7 @@ function openLightbox(clickedImg) {
 
 function showLightboxImage(index) {
   const img = lbImages[index];
-  lightboxImg.src = img.src || img.dataset.src;
+  lightboxImg.src = getSrc(img);
   lightboxImg.alt = img.alt || '';
 }
 

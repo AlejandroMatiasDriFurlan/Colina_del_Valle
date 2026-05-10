@@ -1358,9 +1358,9 @@ footer p {
   .galeria-strip--second { display: none; }
   /* Ocultar cada 3ra imagen (reduce renders ~33%) */
   .galeria-track img:nth-child(3n) { display: none; }
-  /* Animación ajustada para 18 imágenes */
-  .galeria-track--left  { animation-duration: 35s; }
-  .galeria-track--right { animation-duration: 42s; }
+  /* Animación más rápida en mobile (1 fila, ~10 fotos) */
+  .galeria-track--left  { animation-duration: 18s; }
+  .galeria-track--right { animation-duration: 22s; }
   /* Altura reducida */
   .galeria-track img { height: 140px; }
   /* Liberar memoria GPU */

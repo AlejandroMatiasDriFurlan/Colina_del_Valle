@@ -451,14 +451,14 @@
       </div>
     </div>
     <div class="fade-up">
-      <iframe
-        class="map-embed"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Ubicación Colina del Valle - Mina Clavero">
-      </iframe>
+      <div class="map-facade" id="mapFacade" onclick="loadMap(this)">
+        <div class="map-facade-inner">
+          <span class="map-facade-pin">📍</span>
+          <p class="map-facade-name">Colina del Valle Hotel</p>
+          <p class="map-facade-addr">Camino a Cañada Larga 3600, Mina Clavero</p>
+          <button class="map-facade-btn">Ver en el mapa</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

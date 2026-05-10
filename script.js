@@ -108,6 +108,17 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
   }, 600);
 });
 
+// === LAZY MAP ===
+function loadMap(facade) {
+  const iframe = document.createElement('iframe');
+  iframe.className = 'map-embed';
+  iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar';
+  iframe.allowFullscreen = true;
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  iframe.title = 'Ubicación Colina del Valle - Mina Clavero';
+  facade.replaceWith(iframe);
+}
+
 // === SCROLL ANIMATIONS ===
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -117,3 +128,4 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+ 

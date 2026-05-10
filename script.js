@@ -14,8 +14,11 @@ document.getElementById('mobileClose').addEventListener('click', () => {
 });
 
 // === HERO VIDEO ===
-const heroVideo = document.querySelector('.hero-slide--video video');
-if (heroVideo) heroVideo.play();
+const isMobile = window.innerWidth <= 768;
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.play().catch(() => {});
+}
 
 // === GALERÍA AUTO-SCROLL (CSS-driven, pause on hover handled via CSS) ===
 
@@ -95,4 +98,3 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-

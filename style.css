@@ -446,10 +446,10 @@
     will-change: transform;
   }
   .galeria-track--left {
-    animation: galScrollLeft 90s linear infinite;
+    animation: galScrollLeft 50s linear infinite;
   }
   .galeria-track--right {
-    animation: galScrollRight 110s linear infinite;
+    animation: galScrollRight 62s linear infinite;
   }
   .galeria-track:hover {
     animation-play-state: paused;
@@ -1226,8 +1226,58 @@ footer p {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+}
 
-  .hero-slides {
-    height: 300px;
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+
+  /* --- HERO --- */
+  /* Fondo verde como fallback mientras el video carga */
+  .hero {
+    background: #142820;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 580px;
   }
+  .hero-slide--video {
+    background: linear-gradient(to bottom, #1e4033 0%, #142820 100%);
+  }
+  /* Video visible en mobile: object-fit cover para pantallas verticales */
+  .hero-slide--video video {
+    object-position: center center;
+  }
+
+  /* --- QUÉ HACER VIDEO --- */
+  .qh-img .hero-slides {
+    background: #1a3a28;
+    min-height: 220px;
+  }
+
+  /* --- GALERÍA --- */
+  /* Solo 1 fila en mobile */
+  .galeria-strip:nth-child(2) { display: none; }
+  /* Ocultar cada 3ra imagen (reduce renders ~33%) */
+  .galeria-track img:nth-child(3n) { display: none; }
+  /* Animación ajustada para 18 imágenes */
+  .galeria-track--left  { animation-duration: 35s; }
+  .galeria-track--right { animation-duration: 42s; }
+  /* Altura reducida */
+  .galeria-track img { height: 140px; }
+  /* Liberar memoria GPU */
+  .galeria-track { will-change: auto; }
+
+  /* --- ANIMACIONES --- */
+  /* Fade-up más rápido y simple en mobile */
+  .fade-up {
+    transform: translateY(16px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  /* --- TIPOGRAFÍA HERO MOBILE --- */
+  .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+  .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
+  .hero-cta { padding: 0.9rem 2.2rem; }
+
+  /* --- SECCIONES --- */
+  section { padding: 3.5rem 1.2rem; }
 }

@@ -12,11 +12,13 @@ const hamburger   = document.getElementById('hamburger');
 function closeMobileMenu() {
   mobileMenu.classList.remove('open');
   hamburger.classList.remove('is-open');
+  document.body.style.overflow = '';
 }
 
 hamburger.addEventListener('click', () => {
   const isOpen = mobileMenu.classList.toggle('open');
   hamburger.classList.toggle('is-open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 mobileMenu.querySelectorAll('a').forEach(a => {

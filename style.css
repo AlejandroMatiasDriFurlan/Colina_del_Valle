@@ -1092,7 +1092,7 @@ footer p {
   }
   /* Hamburger blanco cuando el menú está abierto */
   .hamburger.is-open span { background: var(--white); }
-  nav.scrolled .hamburger.is-open span { background: var(--white); }
+  nav.scrolled .hamburger.is-open span { background: var(--text-dark); }
   .mobile-menu a {
     font-family: var(--font-serif);
     font-size: 2rem;

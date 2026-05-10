@@ -109,14 +109,30 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
 });
 
 // === LAZY MAP ===
-function loadMap(facade) {
+const MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar';
+
+function loadMap(el) {
   const iframe = document.createElement('iframe');
   iframe.className = 'map-embed';
-  iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.381387222165!2d-65.00045312411933!3d-31.73515767946955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d25e05923dccb%3A0xadf6d874e0633e7b!2sColina%20del%20Valle%20Hotel!5e0!3m2!1ses-419!2sar!4v1714424858327!5m2!1ses-419!2sar';
+  iframe.src = MAP_SRC;
   iframe.allowFullscreen = true;
   iframe.referrerPolicy = 'no-referrer-when-downgrade';
   iframe.title = 'Ubicación Colina del Valle - Mina Clavero';
-  facade.replaceWith(iframe);
+  el.replaceWith(iframe);
+}
+
+// Desktop: carga automática al hacer scroll hasta el mapa
+if (window.innerWidth > 768) {
+  const mapFacade = document.getElementById('mapFacade');
+  if (mapFacade) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadMap(mapFacade);
+        mapObserver.disconnect();
+      }
+    }, { rootMargin: '150px' });
+    mapObserver.observe(mapFacade);
+  }
 }
 
 // === SCROLL ANIMATIONS ===

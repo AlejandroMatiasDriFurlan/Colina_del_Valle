@@ -1429,6 +1429,19 @@ footer p {
     background: #1a3a28;
     min-height: 220px;
   }
+  .qh-img { margin-top: 1rem; }
+
+  /* --- CTA BOTONES IGUALES --- */
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 1rem;
+  }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 
   /* --- GALERÍA --- */
   /* Solo 1 fila en mobile */

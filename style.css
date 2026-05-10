@@ -1077,7 +1077,7 @@ footer p {
     position: fixed;
     inset: 0;
     background: var(--green-deep);
-    z-index: 999;
+    z-index: 1001;
     flex-direction: column;
     align-items: center;
     justify-content: center;

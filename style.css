@@ -50,19 +50,26 @@
     gap: 0.75rem;
     text-decoration: none;
   }
-  /* Logo SVG único: blanco por defecto, oscuro al hacer scroll */
-  .nav-logo-img {
+  .nav-logo-imgs {
+    position: relative;
+    height: 54px;
+  }
+  .nav-logo-imgs img {
     height: 54px;
     width: auto;
-    filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-    transition: filter 0.4s ease;
+    transition: opacity 0.5s;
   }
-  nav.scrolled .nav-logo-img {
-    filter: brightness(0);
+  .nav-logo-imgs img:first-child {
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
   }
-  .footer-logo-img {
-    filter: brightness(0) invert(1);
+  .nav-logo-imgs img:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
   }
+  nav.scrolled .nav-logo-imgs img:first-child { opacity: 0; filter: none; }
+  nav.scrolled .nav-logo-imgs img:last-child { opacity: 1; }
   .nav-brand-text {
     display: flex;
     flex-direction: column;

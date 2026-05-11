@@ -1098,6 +1098,17 @@ footer p:not(.fb-name):not(.fb-sub):not(.fb-location) {
   .footer-links a {
     font-size: 0.75rem;
   }
+
+  /* --- FOOTER BRAND MOBILE --- */
+  .fb-logo {
+    max-width: 111px;
+    width: 35%;
+  }
+  .fb-name  { font-size: 1.4rem; }
+  .fb-sub   { font-size: 0.6rem; }
+  .fb-divider { width: 98px; }
+  .fb-dot   { font-size: 0.39rem; }
+  .fb-location { font-size: 0.49rem; }
 }
 
   /* ===== WHATSAPP FLOAT ===== */

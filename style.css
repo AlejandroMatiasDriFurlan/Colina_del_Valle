@@ -47,16 +47,19 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     text-decoration: none;
   }
   .nav-logo-imgs {
     position: relative;
-    height: 54px;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
   }
   .nav-logo-imgs img {
-    height: 54px;
-    width: auto;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
     transition: opacity 0.5s;
   }
   .nav-logo-imgs img:first-child {

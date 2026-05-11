@@ -249,6 +249,26 @@ if (window.innerWidth > 768) {
   }
 }
 
+// === GALERÍA CARRUSEL SWIPE ACCELERATION ===
+const galeriaStrips = document.querySelector('.galeria-strips');
+if (galeriaStrips) {
+  let touchStartX = 0;
+  let swipeTimer = null;
+  galeriaStrips.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  galeriaStrips.addEventListener('touchend', e => {
+    const dx = Math.abs(touchStartX - e.changedTouches[0].clientX);
+    if (dx < 30) return;
+    const tracks = document.querySelectorAll('.galeria-track');
+    tracks.forEach(t => t.style.animationDuration = '4s');
+    clearTimeout(swipeTimer);
+    swipeTimer = setTimeout(() => {
+      tracks.forEach(t => t.style.animationDuration = '');
+    }, 2000);
+  }, { passive: true });
+}
+
 // === SCROLL ANIMATIONS ===
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

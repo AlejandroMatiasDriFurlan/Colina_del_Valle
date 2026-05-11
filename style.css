@@ -973,14 +973,6 @@ footer::before {
   margin: 0 auto 30px;
 }
 
-/* 🔥 LOGO MÁS GRANDE */
-footer img {
-  width: 195px;
-  height: auto;
-  margin-bottom: 4px;
-  opacity: 0.9;
-}
-
 /* LINKS */
 .footer-links {
   display: flex;
@@ -1022,19 +1014,58 @@ footer img {
   width: 100%;
 }
 
-/* TAGLINE */
-.footer-tagline {
+/* FOOTER BRAND */
+.footer-brand { margin-bottom: 2.2rem; }
+.fb-name {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  font-style: italic;
+  font-size: 2rem;
+  font-weight: 400;
   color: var(--gold);
-  opacity: 0.85;
-  letter-spacing: 0.06em;
-  margin: 0 0 1.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+.fb-sub {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0.4rem 0 0;
+}
+.fb-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.9rem auto;
+  width: 140px;
+}
+.fb-divider span:not(.fb-dot) {
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+}
+.fb-dot {
+  color: var(--gold);
+  font-size: 0.55rem;
+  opacity: 0.8;
+}
+.fb-location {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 /* TEXTO FINAL */
-footer p:not(.footer-tagline) {
+footer p:not(.fb-name):not(.fb-sub):not(.fb-location) {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   opacity: 0.6;
@@ -1043,10 +1074,6 @@ footer p:not(.footer-tagline) {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  footer img {
-    width: 182px;
-  }
-
   footer {
     padding: 3rem 1.5rem 2rem;
   }

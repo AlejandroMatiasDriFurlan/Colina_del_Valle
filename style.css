@@ -1016,6 +1016,14 @@ footer::before {
 
 /* FOOTER BRAND */
 .footer-brand { margin-bottom: 2.2rem; }
+.fb-logo {
+  width: 50%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.6rem;
+  opacity: 0.92;
+}
 .fb-name {
   font-family: var(--font-serif);
   font-size: 2rem;

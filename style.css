@@ -35,15 +35,14 @@
     padding: 0 3rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: space-between;
     transition: all 0.5s ease;
   }
   nav.scrolled {
     background: rgba(247,243,237,0.96);
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 30px rgba(44,74,62,0.08);
-    padding: 0 3rem 0.5cm;
+    padding: 0.25cm 3rem;
   }
   .nav-logo {
     display: flex;

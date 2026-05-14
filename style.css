@@ -52,14 +52,15 @@
   }
   .nav-logo-imgs {
     position: relative;
-    width: 48px;
-    height: 48px;
+    height: 54px;
+    width: 130px;
     flex-shrink: 0;
   }
   .nav-logo-imgs img {
-    width: 48px;
-    height: 48px;
+    height: 54px;
+    width: 130px;
     object-fit: contain;
+    object-position: left center;
     transition: opacity 0.5s;
   }
   .nav-logo-imgs img:first-child {

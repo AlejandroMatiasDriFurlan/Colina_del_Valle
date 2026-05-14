@@ -42,7 +42,7 @@
     background: rgba(247,243,237,0.96);
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 30px rgba(44,74,62,0.08);
-    padding: 0.2rem 3rem;
+    padding: 0 3rem;
   }
   .nav-logo {
     display: flex;
@@ -52,13 +52,13 @@
   }
   .nav-logo-imgs {
     position: relative;
-    height: 81px;
-    width: 195px;
+    height: 121px;
+    width: 292px;
     flex-shrink: 0;
   }
   .nav-logo-imgs img {
-    height: 81px;
-    width: 195px;
+    height: 121px;
+    width: 292px;
     object-fit: contain;
     object-position: left center;
     transition: opacity 0.5s;

@@ -63,17 +63,10 @@
     object-position: left center;
     transition: opacity 0.5s;
   }
-  .nav-logo-imgs img:first-child {
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-  }
-  .nav-logo-imgs img:last-child {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .nav-logo-imgs img {
     opacity: 0;
   }
-  nav.scrolled .nav-logo-imgs img:first-child { opacity: 0; filter: none; }
-  nav.scrolled .nav-logo-imgs img:last-child { opacity: 1; }
+  nav.scrolled .nav-logo-imgs img { opacity: 1; }
   .nav-brand-text {
     display: flex;
     flex-direction: column;

@@ -52,12 +52,12 @@
   }
   .nav-logo-imgs {
     position: relative;
-    height: 49px;
+    height: 42px;
     width: auto;
     flex-shrink: 0;
   }
   .nav-logo-imgs img {
-    height: 49px;
+    height: 42px;
     width: auto;
     transition: opacity 0.5s;
   }

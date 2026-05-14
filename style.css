@@ -32,7 +32,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1002;
-    padding: 0 3rem;
+    padding: 0.5cm 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

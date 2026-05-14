@@ -32,7 +32,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1002;
-    padding: 1.2rem 3rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,14 +53,12 @@
   .nav-logo-imgs {
     position: relative;
     height: 121px;
-    width: 292px;
+    width: auto;
     flex-shrink: 0;
   }
   .nav-logo-imgs img {
     height: 121px;
-    width: 292px;
-    object-fit: contain;
-    object-position: left center;
+    width: auto;
     transition: opacity 0.5s;
   }
   .nav-logo-imgs img {

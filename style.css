@@ -218,7 +218,7 @@
   }
   .hero-logo {
     display: block;
-    width: clamp(260px, 38vw, 520px);
+    width: clamp(312px, 46vw, 624px);
     height: auto;
     margin: 1.2rem auto 1.4rem;
     filter: drop-shadow(0 4px 24px rgba(0,0,0,0.35));
@@ -1638,7 +1638,7 @@ footer p:not(.fb-name):not(.fb-sub):not(.fb-location) {
   }
 
   /* --- TIPOGRAFÍA HERO MOBILE --- */
-  .hero-logo { width: clamp(200px, 72vw, 320px); }
+  .hero-logo { width: clamp(240px, 86vw, 384px); }
   .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
   .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
   .hero-cta { padding: 0.9rem 2.2rem; }

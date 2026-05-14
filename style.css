@@ -47,18 +47,18 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.4rem;
     text-decoration: none;
   }
   .nav-logo-imgs {
     position: relative;
-    height: 54px;
-    width: 130px;
+    height: 81px;
+    width: 195px;
     flex-shrink: 0;
   }
   .nav-logo-imgs img {
-    height: 54px;
-    width: 130px;
+    height: 81px;
+    width: 195px;
     object-fit: contain;
     object-position: left center;
     transition: opacity 0.5s;
